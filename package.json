@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^1.2.12",
+    "@anthropic-ai/sdk": "^0.54.0",
     "@farcaster/auth-client": ">=0.3.0 <1.0.0",
     "@farcaster/auth-kit": ">=0.6.0 <1.0.0",
     "@farcaster/frame-core": ">=0.0.29 <1.0.0",
