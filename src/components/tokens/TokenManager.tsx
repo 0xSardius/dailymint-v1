@@ -10,10 +10,6 @@ interface Token {
   metadataUri: string;
 }
 
-interface TokenListResponse {
-  tokens: Token[];
-}
-
 export function TokenManager() {
   const [name, setName] = useState("");
   const [symbol, setSymbol] = useState("");

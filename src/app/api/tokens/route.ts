@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSession } from "~/auth";
 import { supabase } from "~/lib/supabase";
-import { createToken, getTokenBalance } from "~/lib/services/tokenService";
+import { createToken } from "~/lib/services/tokenService";
 
 // GET /api/tokens - Get all tokens
 export async function GET() {
