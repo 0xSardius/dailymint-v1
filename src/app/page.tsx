@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Textarea } from "@/components/ui/textarea"
+import { Button } from "~/components/ui/Button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "~/components/ui/card"
+import { Badge } from "~/components/ui/badge"
+import { Textarea } from "~/components/ui/textarea"
 import { Flame, Coins, Zap, Share2, Trophy } from "lucide-react"
 
 // Mock data - replace with your actual hooks
@@ -100,7 +100,7 @@ export default function DailyMintApp() {
             <div className="space-y-4">
               <Textarea
                 value={content}
-                onChange={(e) => setContent(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setContent(e.target.value)}
                 placeholder="Start writing your response... Make it count! 🎨"
                 className="min-h-[150px] text-lg border-4 border-black shadow-[4px_4px_0px_0px_#000] font-mono resize-none focus:shadow-[2px_2px_0px_0px_#000] transition-all"
               />
@@ -141,8 +141,8 @@ export default function DailyMintApp() {
             <Button
               onClick={handleSubmit}
               disabled={!isValidLength || isCreating}
-              className="w-full text-2xl font-black py-6 bg-blue-400 hover:bg-blue-500 text-black border-4 border-black shadow-[4px_4px_0px_0px_#000] hover:shadow-[2px_2px_0px_0px_#000] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               size="lg"
+              className="w-full text-2xl font-black py-6 bg-blue-400 hover:bg-blue-500 text-black border-4 border-black shadow-[4px_4px_0px_0px_#000] hover:shadow-[2px_2px_0px_0px_#000] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isCreating ? (
                 <>
