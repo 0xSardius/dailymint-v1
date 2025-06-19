@@ -25,7 +25,7 @@ import { useHasSolanaProvider } from "./providers/SafeFarcasterSolanaProvider";
 import { ShareButton } from "./ui/Share";
 
 import { config } from "~/components/providers/WagmiProvider";
-import { Button } from "~/components/ui/Button";
+import { Button } from "~/components/ui/button";
 import { truncateAddress } from "~/lib/truncateAddress";
 import { base, degen, mainnet, optimism, unichain } from "wagmi/chains";
 import { BaseError, UserRejectedRequestError } from "viem";
@@ -344,13 +344,19 @@ export default function Demo(
             {isConnected && (
               <>
                 <SendEth />
-                <Button
+                <Button 
                   onClick={sendTx}
                   disabled={!isConnected || isSendTxPending}
-                  isLoading={isSendTxPending}
                   className="w-full"
                 >
-                  Send Transaction (contract)
+                  {isSendTxPending ? (
+                    <div className="flex items-center justify-center">
+                      <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full mr-2" />
+                      Sending...
+                    </div>
+                  ) : (
+                    "Send Transaction (contract)"
+                  )}
                 </Button>
                 {isSendTxError && renderError(sendTxError)}
                 {txHash && (
@@ -369,19 +375,31 @@ export default function Demo(
                 <Button
                   onClick={signTyped}
                   disabled={!isConnected || isSignTypedPending}
-                  isLoading={isSignTypedPending}
                   className="w-full"
                 >
-                  Sign Typed Data
+                  {isSignTypedPending ? (
+                    <div className="flex items-center justify-center">
+                      <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full mr-2" />
+                      Signing...
+                    </div>
+                  ) : (
+                    "Sign Typed Data"
+                  )}
                 </Button>
                 {isSignTypedError && renderError(signTypedError)}
                 <Button
                   onClick={handleSwitchChain}
                   disabled={isSwitchChainPending}
-                  isLoading={isSwitchChainPending}
                   className="w-full"
                 >
-                  Switch to {nextChain.name}
+                  {isSwitchChainPending ? (
+                    <div className="flex items-center justify-center">
+                      <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full mr-2" />
+                      Switching...
+                    </div>
+                  ) : (
+                    `Switch to ${nextChain.name}`
+                  )}
                 </Button>
                 {isSwitchChainError && renderError(switchChainError)}
               </>
@@ -427,10 +445,16 @@ function SignSolanaMessage({ signMessage }: { signMessage?: (message: Uint8Array
       <Button
         onClick={handleSignMessage}
         disabled={signPending}
-        isLoading={signPending}
         className="mb-4"
       >
-        Sign Message
+        {signPending ? (
+          <div className="flex items-center justify-center">
+            <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full mr-2" />
+            Signing...
+          </div>
+        ) : (
+          "Sign Message"
+        )}
       </Button>
       {signError && renderError(signError)}
       {signature && (
@@ -505,10 +529,16 @@ function SendSolana() {
       <Button
         onClick={handleSend}
         disabled={state.status === 'pending'}
-        isLoading={state.status === 'pending'}
         className="mb-4"
       >
-        Send Transaction (sol)
+        {state.status === 'pending' ? (
+          <div className="flex items-center justify-center">
+            <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full mr-2" />
+            Sending...
+          </div>
+        ) : (
+          "Send Transaction (sol)"
+        )}
       </Button>
       {state.status === 'error' && renderError(state.error)}
       {state.status === 'success' && (
@@ -547,9 +577,15 @@ function SignEvmMessage() {
       <Button
         onClick={handleSignMessage}
         disabled={isSignPending}
-        isLoading={isSignPending}
       >
-        Sign Message
+        {isSignPending ? (
+          <div className="flex items-center justify-center">
+            <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full mr-2" />
+            Signing...
+          </div>
+        ) : (
+          "Sign Message"
+        )}
       </Button>
       {isSignError && renderError(signError)}
       {signature && (
@@ -595,9 +631,15 @@ function SendEth() {
       <Button
         onClick={handleSend}
         disabled={!isConnected || isSendTxPending}
-        isLoading={isSendTxPending}
       >
-        Send Transaction (eth)
+        {isSendTxPending ? (
+          <div className="flex items-center justify-center">
+            <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full mr-2" />
+            Sending...
+          </div>
+        ) : (
+          "Send Transaction (eth)"
+        )}
       </Button>
       {isSendTxError && renderError(sendTxError)}
       {data && (
