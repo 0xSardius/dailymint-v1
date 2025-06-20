@@ -72,7 +72,7 @@ export type Database = {
           is_minted: boolean;
           coins_earned: number;
           is_public: boolean;
-          metadata: Record<string, any>;
+          metadata: Record<string, unknown>;
           created_at: string;
           updated_at: string;
           deleted_at: string | null;
@@ -156,7 +156,7 @@ export type Database = {
           message: string;
           is_read: boolean;
           created_at: string;
-          data: Record<string, any> | null;
+          data: Record<string, unknown> | null;
         };
         Insert: Omit<Database['public']['Tables']['notifications']['Row'], 'id' | 'created_at'>;
         Update: Partial<Database['public']['Tables']['notifications']['Insert']>;
