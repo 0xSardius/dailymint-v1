@@ -88,7 +88,7 @@ export default function DailyMintApp() {
         <Card className="border-4 border-black shadow-[8px_8px_0px_0px_#000] bg-white">
           <CardHeader className="bg-purple-400 border-b-4 border-black">
             <div className="flex items-center justify-between">
-              <CardTitle className="text-3xl font-black text-black">TODAY'S PROMPT</CardTitle>
+              <CardTitle className="text-3xl font-black text-black">TODAY&apos;S PROMPT</CardTitle>
               <Badge variant="outline" className="bg-white border-2 border-black font-black px-3 py-1">
                 {mockPrompt.type.toUpperCase()}
               </Badge>

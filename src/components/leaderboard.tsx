@@ -160,9 +160,9 @@ export function Leaderboard() {
           <CardTitle className="text-2xl font-black text-black text-center">🏆 WEEKLY CHALLENGE 🏆</CardTitle>
         </CardHeader>
         <CardContent className="p-6 text-center">
-          <h3 className="text-3xl font-black text-black mb-2">"GRATITUDE WEEK"</h3>
+          <h3 className="text-3xl font-black text-black mb-2">&quot;GRATITUDE WEEK&quot;</h3>
           <p className="text-xl font-bold text-black/90 mb-4">
-            Write about something you're grateful for each day this week
+            Write about something you&apos;re grateful for each day this week
           </p>
           <Badge className="bg-yellow-400 border-2 border-black text-black font-black px-4 py-2 shadow-[2px_2px_0px_0px_#000] text-lg">
             BONUS: +50 DAILY TOKENS PER DAY
